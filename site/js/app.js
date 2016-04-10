@@ -3,31 +3,31 @@ $(function(){
 
   $('#searchButton').on('click', function(){
     $.ajax({
-      // workaround because data doesn't seem to work
       url: 'https://en.wikipedia.org/w/api.php' +
-           '?action=query' +
-           '&list=search' +
-           '&srsearch=' + $('#searchText').val() +
-           '&srprop=titlesnippet|snippet|redirecttitle|redirectsnippet' +
+           '?action=opensearch' +
+           '&search=' + $('#searchText').val() +
            '&format=json' +
            '&callback=?',
       dataType: 'json',
       headers: {
         'Api-User-Agent': 'DhooreFCCWikisearch'
       }
-      // can't figure out why this isn't working
-      // data: {
-      //   format: 'json',
-      //   action: 'query',
-      //   list: 'search',
-      //   srsearch: $('#searchText').val(),
-      //   callback: 'cb'
-      // }
     })
-    .done(function(data){
-      console.log('in done');
-      console.log(data);
+    .done(function(json){
+      displaySearchResults(json);
     });
   });
 
 });
+
+
+function displaySearchResults(results){
+  console.log(results);
+  var list = '<ul>';
+
+  for (var i = 0, len = results[1].length; i < len; i++) {
+    list += '<li><a href="' + results[3][i] + '">' + results[1][i] + '<a/><br>' + results[2][i] + '</li>';
+  }
+  list += '</ul>';
+  $('main').html(list);
+}
