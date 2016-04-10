@@ -2,20 +2,24 @@
 $(function(){
 
   $('#searchButton').on('click', function(){
-    $.ajax({
-      url: 'https://en.wikipedia.org/w/api.php' +
-           '?action=opensearch' +
-           '&search=' + $('#searchText').val() +
-           '&format=json' +
-           '&callback=?',
-      dataType: 'json',
-      headers: {
-        'Api-User-Agent': 'DhooreFCCWikisearch'
-      }
-    })
-    .done(function(json){
-      displaySearchResults(json);
-    });
+    if ($('#searchText').val()) {
+      $.ajax({
+        url: 'https://en.wikipedia.org/w/api.php' +
+             '?action=opensearch' +
+             '&search=' + $('#searchText').val() +
+             '&format=json' +
+             '&callback=?',
+        dataType: 'json',
+        headers: {
+          'Api-User-Agent': 'DhooreFCCWikisearch'
+        }
+      })
+      .done(function(json){
+        displaySearchResults(json);
+      });
+    } else {
+      window.open('http://en.wikipedia.org/wiki/Special:Random', '_blank');
+    }
   });
 
 });
