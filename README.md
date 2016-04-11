@@ -24,3 +24,6 @@ Build a [Codepen.io](https://codepen.io) app that is functionally similar to the
 * [Bootstrap](https://getbootstrap.com)
 * [jQuery](https://jquery.com/)
 * [jquery-template](https://github.com/codepb/jquery-template)
+
+## Notes:
+Hosted on my [codepen](http://codepen.io/xipxoom/pen/RaQGmY).
