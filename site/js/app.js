@@ -35,7 +35,7 @@ function retrieveSearchResults() {
 function displaySearchResults(results){
   $('main ul').html('');
   for (var i = 0, len = results[1].length; i < len; i++) {
-    $("main ul").loadTemplate("template-searchResult.html", {
+    $("main ul").loadTemplate($('#template-searchResult'), {
       link: results[3][i],
       title: results[1][i],
       text: results[2][i]
