@@ -2,7 +2,32 @@ body {
   background: #f6f6f6;
   padding-top: 70px;
 }
+ul div {
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  padding: 10px;
+  transition: all 0.3s;
+}
+ul div:last-child {
+  border-bottom: 1px solid #000;
+}
+ul div:hover {
+  background-color: #a2c2c2;
+}
+div li p {
+  margin-bottom: 0;
+  padding: 10px 0;
+  color: #000;
+}
+li h2 {
+  margin: 0;
+  color: #000;
+}
 
 .navbar .input-group {
   margin-top: 8px;
+}
+ul div a:hover {
+  text-decoration: none;
 }
